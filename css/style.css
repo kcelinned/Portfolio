@@ -192,7 +192,6 @@ nav { display: none; }
     margin: 0.5em auto 1em;
     background: var(--clr-bg);
     opacity: 0.5
-
 }
 
 .services{
@@ -216,5 +215,51 @@ nav { display: none; }
     /* checks if there is a sibling */ 
     .service + .service{
         margin-left: 2em; 
+    }
+}
+
+
+/* About Section */ 
+
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img{
+    box-shadow: var(--bshadow);
+}
+
+@media (min-width: 600px){
+    .about-me{
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about{
+        grid-area: title;
+    }
+
+    .section__subtitle--about{
+        /*go from one side all the way to other*/
+        grid-column: 1/-1;
+        grid-row: 2;
+        position: relative;
+        left:-2em;
+        width: calc(100% + 2em);
+        padding-left: 2em;
+        /* ensures that the text never touches the image */ 
+        padding-right: calc(200px + 2em); 
+    }
+
+    .about-me__img{
+       grid-area: img;
+       position: relative;
+       z-index: 2;
     }
 }
